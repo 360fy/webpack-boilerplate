@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import Path from 'path';
 import Webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
@@ -46,6 +47,10 @@ export default function (basePath, app, babelIncludePaths) {
     //    });
     //} else {
 
+    if (babelIncludePaths && !_.isArray(babelIncludePaths)) {
+        babelIncludePaths = [babelIncludePaths];
+    }
+
     COMMON_LOADERS.push({
         test: /\.jsx?$/,
         loader: 'babel',
@@ -53,7 +58,12 @@ export default function (basePath, app, babelIncludePaths) {
             cacheDirectory: true,
             presets: ['es2015', 'react']
         },
-        include: [BROWSER_CODE_PATH, SRC_CODE_PATH, Path.join(NODE_MODULES_PATH, 'qs'), Path.join(NODE_MODULES_PATH, 'reactjs-web-boilerplate/browser')]
+        include: _.union([
+            BROWSER_CODE_PATH,
+            SRC_CODE_PATH,
+            Path.join(NODE_MODULES_PATH, 'qs'),
+            Path.join(NODE_MODULES_PATH, 'reactjs-web-boilerplate/browser')
+        ], babelIncludePaths || [])
     });
 
     //}
