@@ -2,8 +2,7 @@
   "name": "webpack-boilerplate",
   "version": "1.0.0",
   "description": "Boilerplate for webpack build of browser application",
-  "private": true,
-  "repository": "git+ssh://git-codecommit.us-east-1.amazonaws.com/v1/repos/webpack-boilerplate",
+  "repository": "git@github.com:360fy/webpack-boilerplate.git",
   "scripts": {
     "lint": "eslint ./src/",
     "clean": "rm -rf lib/",
@@ -24,7 +23,7 @@
     "chunk-manifest-webpack-plugin": "0.0.1",
     "css-loader": "^0.23.1",
     "eslint": "^2.4.0",
-    "eslint-config-360fy": "https://private-npm-releases.s3.amazonaws.com/eslint-config-360fy-1.0.1.tgz",
+    "eslint-config-360fy": "^1.0.1",
     "eslint-loader": "^1.3.0",
     "eslint-plugin-react": "^4.2.3",
     "extract-text-webpack-plugin": "^1.0.1",
