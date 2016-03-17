@@ -1,8 +1,8 @@
 {
-  "name": "webpack-boilerplate",
+  "name": "webpack-reactjs-boilerplate",
   "version": "1.0.0",
   "description": "Boilerplate for webpack build of browser application",
-  "repository": "git@github.com:360fy/webpack-boilerplate.git",
+  "repository": "git@github.com:360fy/webpack-reactjs-boilerplate.git",
   "scripts": {
     "lint": "eslint ./src/",
     "clean": "rm -rf lib/",
