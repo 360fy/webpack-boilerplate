@@ -56,7 +56,8 @@ export default function (basePath, app, babelIncludePaths) {
         loader: 'babel',
         query: {
             cacheDirectory: true,
-            presets: ['es2015', 'react']
+            presets: ['es2015', 'react'],
+            plugins: ['transform-runtime']
         },
         include: _.union([
             BROWSER_CODE_PATH,
@@ -94,7 +95,7 @@ export default function (basePath, app, babelIncludePaths) {
     //var hotMiddlewareScript = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true';
     return {
         name: 'browser',
-        entry: {app}, //production ? 'browser/browser.jsx' : ['browser/browser.jsx', hotMiddlewareScript]
+        entry: {app: [app, 'babel-polyfill']}, //production ? 'browser/browser.jsx' : ['browser/browser.jsx', hotMiddlewareScript]
         output: {
             path: PUBLIC_DIST_PATH,
             filename: '[name].js',
