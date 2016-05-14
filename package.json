@@ -52,5 +52,7 @@
       "react"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "^2.9.0"
+  }
 }
