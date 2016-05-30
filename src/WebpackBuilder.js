@@ -88,7 +88,7 @@ export default function (basePath, app, babelIncludePaths) {
     ];
 
     const PUBLIC_RESOURCES_WEB_PATH = '/resources/';
-    const CSS_RESOURCES_WEB_PATH = '/resources/';
+    const CSS_RESOURCES_WEB_PATH = '';
 
     const PUBLIC_DIST_PATH = Path.join(basePath, '__public__');
 
@@ -114,15 +114,15 @@ export default function (basePath, app, babelIncludePaths) {
             loaders: COMMON_LOADERS.concat(
               {
                   test: /\.sass$/,
-                  loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
+                  loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader', {publicPath: CSS_RESOURCES_WEB_PATH})
               },
               {
                   test: /\.scss$/,
-                  loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
+                  loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader', {publicPath: CSS_RESOURCES_WEB_PATH})
               },
               {
                   test: /\.css$/,
-                  loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+                  loader: ExtractTextPlugin.extract('style-loader', 'css-loader', {publicPath: CSS_RESOURCES_WEB_PATH})
               }
             ),
             noParse: /\.min\.js/
@@ -138,7 +138,7 @@ export default function (basePath, app, babelIncludePaths) {
         },
         plugins: [
             new Webpack.NamedModulesPlugin(),
-            new ExtractTextPlugin('style.css', {allChunks: true, publicPath: CSS_RESOURCES_WEB_PATH}),
+            new ExtractTextPlugin('style.css', {allChunks: true}),
             new Webpack.optimize.OccurenceOrderPlugin(),
             new Webpack.ProvidePlugin({$: 'jquery', jQuery: 'jquery', jquery: 'jquery'})
         ].concat(production ? [
