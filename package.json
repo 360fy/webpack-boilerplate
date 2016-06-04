@@ -1,6 +1,6 @@
 {
   "name": "webpack-builder-boilerplate",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Boilerplate for webpack build of browser application",
   "repository": "git@github.com:360fy/webpack-builder-boilerplate.git",
   "scripts": {
